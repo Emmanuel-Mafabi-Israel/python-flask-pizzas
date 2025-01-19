@@ -1,0 +1,504 @@
+/*
+	GLORY BE TO GOD,
+	THE PIZZA SOCIETY APP,
+	BY ISRAEL MAFABI EMMANUEL
+*/
+
+/* Architects Daughter Font Style */
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* Lobster Two Font Style */
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* Pacifico Font Style */
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+	--foodie-cool-black  : #292929;
+	--foodie-cool-gray   : #3c3c3c;
+	--foodie-cool-brick  : rgb(190, 33, 33);
+	--foodie-cool-tomato : rgb(255, 108, 82);
+	--foodie-cool-wheat  : wheat;
+
+	--foodie-default-font: "Pacifico", sans-serif;
+}
+
+* {
+	font-family: var(--foodie-default-font);
+
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+
+	outline: none;
+	user-select: none;
+	-webkit-user-select: none;
+	-webkit-user-drag: none;
+	-ms-user-select: none;
+	-moz-user-select: none;
+
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	transition: 500ms;
+	overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+	width: 7px;
+}
+
+::-webkit-scrollbar-track {
+	background: var(--foodie-cool-black);
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--foodie-cool-gray);
+}
+
+body {
+	background-color: tomato;
+	color: var(--foodie-cool-black);
+
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+
+	width: 100vw;
+	min-height: 100vh;
+
+	.foodie-navbar {
+		background: var(--foodie-cool-wheat);
+
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		padding-left: 14px;
+		padding-right: 14px;
+
+		box-shadow: 0px 0px 5px var(--foodie-cool-black);
+
+		width: 100vw;
+		height: 50px;
+
+		.foodie-logo {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			width: fit-content;
+			height: 50px;
+
+			img {
+				height: 80%;
+			}
+
+			.foodie-title {
+				font-size: 21px;
+				font-weight: normal;
+
+				margin-left: 7px;
+				margin-right: 7px;
+
+				width: fit-content;
+				height: fit-content;
+			}
+		}
+
+		.foodie-links {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			margin-right: 7px;
+			margin-right: 7px;
+
+			width: fit-content;
+			height: 50px;
+
+			a {
+				color: var(--foodie-cool-brick);
+				font-size: 21px;
+
+				text-decoration: none;
+			}
+		}
+	}
+
+	.foodie-container {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		flex-direction: column;
+
+		gap: 28px;
+
+		padding-top: 28px;
+		padding-bottom: 28px;
+
+		width: 100vw;
+		min-height: calc(100vh - 50px);
+
+		.foodie-card {
+			background: var(--foodie-cool-wheat);
+			border-radius: 14px;
+
+			display: flex;
+			align-items: center;
+			justify-content: space-evenly;
+			flex-direction: column;
+
+			padding: 18px;
+
+			box-shadow: 0px 0px 5px var(--foodie-cool-black);
+
+			width: 800px;
+			min-height: 155px;
+			max-height: 165px;
+
+			.foodie-card-title {
+				color: var(--foodie-cool-brick);
+
+				font-size: 25px;
+				font-weight: normal;
+
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
+				padding: 2px;
+
+				width: fit-content;
+				height: fit-content;
+			}
+
+			.foodie-card-address {
+				padding: 2px;
+
+				width: fit-content;
+				height: fit-content;
+			}
+
+			.foodie-card-btns {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
+				gap: 14px;
+
+				width: fit-content;
+				height: fit-content;
+
+				.foodie-interactive-btn {
+					background: var(--foodie-cool-brick);
+					border: 2px solid var(--foodie-cool-brick);
+					border-radius: 7px;
+	
+					color: var(--foodie-cool-wheat);
+					font-size: 16px;
+	
+					margin-top: 7px;
+					margin-bottom: 7px;
+
+					cursor: pointer;
+	
+					width: 120px;
+					height: 35px;
+				}
+
+				.foodie-interactive-btn.visit {
+					background: var(--foodie-cool-wheat);
+					border: 2px solid var(--foodie-cool-brick);
+					color: var(--foodie-cool-brick);
+				}
+
+				.foodie-interactive-btn:hover {
+					background: var(--foodie-cool-tomato);
+					border: 2px solid var(--foodie-cool-tomato);
+				}
+
+				.foodie-interactive-btn:active {
+					color: var(--foodie-cool-brick);
+				}
+
+				.foodie-interactive-btn.visit:active {
+					color: var(--foodie-cool-wheat);
+				}
+			}
+		}
+
+		.foodie-restaurant-info {
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+			flex-direction: column;
+
+			gap: 28px;
+
+			padding-top: 7px;
+
+			width: 100vw;
+			min-height: inherit;
+
+			.foodie-restaurant-info-title-card {
+				background: var(--foodie-cool-wheat);
+				border-radius: 14px;
+
+				padding: 18px;
+
+				box-shadow: 0px 0px 5px var(--foodie-cool-black);
+
+				width: 800px;
+				height: fit-content;
+
+				.foodie-restaurant-info-name {
+					color: var(--foodie-cool-brick);
+					font-size: 24px;
+					font-weight: normal;
+
+					padding: 2px;
+				}
+
+				.foodie-restaurant-info-address {
+					color: var(--foodie-cool-black);
+					font-size: 16px;
+
+					padding: 2px;
+				}
+			}
+
+			.foodie-restaurant-info-menu-card {
+				background: var(--foodie-cool-wheat);
+				border-radius: 14px;
+
+				display: flex;
+				align-items: flex-start;
+				justify-content: flex-start;
+				flex-direction: column;
+
+				gap: 10px;
+
+				padding: 18px;
+
+				box-shadow: 0px 0px 5px var(--foodie-cool-black);
+
+				width: 800px;
+				min-height: 100px;
+
+				.foodie-restaurant-info-menu-card-title {
+					color: var(--foodie-cool-brick);
+					font-weight: normal;
+
+					padding: 2px;
+
+					width: fit-content;
+					height: fit-content;
+				}
+
+				.foodie-restaurant-info-menu-card-ingredient {
+					display: flex;
+					align-items: flex-start;
+					justify-content: center;
+					flex-direction: column;
+
+					width: fit-content;
+					height: fit-content;
+
+					h3 {
+						font-size: 17.5px;
+						padding: 2px;
+
+						width: fit-content;
+						height: fit-content;
+					}
+
+					p {
+						font-size: 16px;
+						padding: 2px;
+
+						width: fit-content;
+						height: fit-content;
+					}
+
+					.price {
+						color: var(--foodie-cool-brick);
+						font-size: 16.5px;
+					}
+				}
+			}
+
+			.foodie-restaurant-new-card {
+				background: var(--foodie-cool-wheat);
+				border-radius: 14px;
+
+				display: flex;
+				align-items: flex-start;
+				justify-content: center;
+				flex-direction: column;
+
+				gap: 10px;
+				
+				padding: 18px;
+
+				box-shadow: 0px 0px 5px var(--foodie-cool-black);
+
+				width: 800px;
+				height: fit-content;
+
+				h3 {
+					color: var(--foodie-cool-brick);
+					font-size: 17.5px;
+					padding: 2px;
+
+					width: fit-content;
+					height: fit-content;
+				}
+
+				form {
+					display: flex;
+					align-items: center;
+					justify-content: flex-start;
+
+					width: inherit;
+					height: fit-content;
+
+					label {
+						font-size: 16px;
+
+						display: flex;
+						align-items: center;
+						justify-content: center;
+
+						padding: 2px;
+
+						width: fit-content;
+						height: 35px;
+					}
+
+					select {
+						background: var(--foodie-cool-wheat);
+						border: 1px solid transparent;
+						border-radius: 7px;
+
+						font-size: 16px;
+						color: var(--foodie-cool-brick);
+
+						padding-left: 4px;
+						padding-right: 4px;
+
+						margin-left: 4px;
+						margin-right: 14px;
+
+						cursor: pointer;
+
+						width: 130px;
+						height: 35px;
+					}
+
+					input {
+						background: var(--foodie-cool-wheat);
+						border-top: 1px solid transparent;
+						border-left: 1px solid transparent;
+						border-right: 1px solid transparent;
+						border-bottom: 1px solid var(--foodie-cool-brick);
+		
+						color: var(--foodie-cool-brick);
+						font-size: 16px;
+
+						padding-right: 7px;
+						padding-left: 7px;
+
+						margin-left: 4px;
+						margin-right: 14px;
+	
+						cursor: text;
+		
+						width: 70px;
+						height: 35px;
+					}
+
+					input[type="number"]::-webkit-inner-spin-button,
+					input[type="number"]::-webkit-outer-spin-button {
+						-webkit-appearance: none;
+						margin: 0;
+					}
+
+					.foodie-interactive-btn {
+						background: var(--foodie-cool-brick);
+						border: 2px solid var(--foodie-cool-brick);
+						border-radius: 7px;
+		
+						color: var(--foodie-cool-wheat);
+						font-size: 16px;
+	
+						cursor: pointer;
+
+						padding-left: 14px;
+						padding-right: 14px;
+		
+						width: fit-content;
+						height: 35px;
+					}
+
+					.foodie-interactive-error {
+						font-size: 16px;
+
+						display: flex;
+						align-items: center;
+						justify-content: center;
+
+						margin-left: 14px;
+						margin-right: 14px;
+
+						width: fit-content;
+						height: 35px;
+					}
+					
+					/* 
+					-> Non-standard property,
+					input[type="number"] {
+						-moz-appearance: textfield;
+					} */
+				}
+			}
+		}
+	}
+
+	.foodie-loading, .foodie-error {
+		color: var(--foodie-cool-wheat);
+		font-size: 28px;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		width: 100vw;
+		height: calc(100vh - 50px);
+	}
+}
+
+a {
+	color: firebrick;
+}
+
+/* header {
+	padding: 8px;
+	background-color: wheat;
+	display: flex;
+	justify-content: space-between;
+}
+
+header .logo img {
+	height: 100%;
+	/* animation: spin 5s infinite linear;
+}
+*/
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}

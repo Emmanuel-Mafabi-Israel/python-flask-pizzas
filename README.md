@@ -97,6 +97,8 @@ It includes a backend API built with Python, Flask, and SQLAlchemy, and a user i
 
        ```shell
        npm install --prefix client
+       # then run
+       npm start --prefix client
        ```
 
      - Then run the react app

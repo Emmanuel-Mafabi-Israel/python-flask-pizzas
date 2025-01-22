@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 # GLORY BE TO GOD,
 # FLASK - PIZZAS APP,
 # BY ISRAEL MAFABI EMMANUEL
@@ -71,6 +69,7 @@ class RestaurantPizza(db.Model, SerializerMixin):
     # validation
     @validates('price')
     def validate_price(self, key, price):
+        # ensuring the price is always an integer and is within the valid range...
         if not isinstance(price, int) or price < 1 or price > 30:
             raise ValueError("validation errors")
         return price

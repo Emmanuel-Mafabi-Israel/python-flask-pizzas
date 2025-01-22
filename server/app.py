@@ -30,7 +30,7 @@ class Home(Resource):
 
 class Restaurants(Resource):
     def get(self):
-        restaurants = Restaurant.query.all()
+        restaurants     = Restaurant.query.all()
         restaurant_list = [restaurant.to_dict(only=('id', 'name', 'address')) for restaurant in restaurants]
         return make_response(jsonify(restaurant_list), 200)
     
@@ -53,7 +53,7 @@ class RestaurantByID(Resource):
     
 class Pizzas(Resource):
     def get(self):
-        pizzas = Pizza.query.all()
+        pizzas     = Pizza.query.all()
         pizza_list = [pizza.to_dict(only=('id', 'name', 'ingredients')) for pizza in pizzas]
         return make_response(jsonify(pizza_list), 200)
     
@@ -64,16 +64,17 @@ class RestaurantPizzas(Resource):
             return make_response(jsonify({"errors": ["Request body must be JSON data."]}), 400)
         
         try:
-            price = data['price']
-            pizza_id = data['pizza_id']
+            price         = data['price']
+            pizza_id      = data['pizza_id']
             restaurant_id = data['restaurant_id']
-            
-            if not isinstance(price, (int, float)):
-                return make_response(jsonify({"errors": ["Price must be a number."]}), 400)
-            if not isinstance(pizza_id, int):
-                return make_response(jsonify({"errors": ["Pizza id must be an integer."]}), 400)
-            if not isinstance(restaurant_id, int):
-               return make_response(jsonify({"errors": ["Restaurant id must be an integer."]}), 400)
+
+            # checking for empty values
+            if price is None:
+                return make_response(jsonify({"errors": ["Price is required."]}), 400)
+            if pizza_id is None:
+                return make_response(jsonify({"errors": ["Pizza ID is required."]}), 400)
+            if restaurant_id is None:
+                return make_response(jsonify({"errors": ["Restaurant ID is required."]}), 400)
            
             new_restaurant_pizza = RestaurantPizza(
                 price=price,
@@ -94,9 +95,20 @@ class RestaurantPizzas(Resource):
                     'restaurant'
                     )
                 )), 201)
-        except KeyError:
-            return make_response(jsonify({"errors": ["Invalid data values."]}), 400)
+        
+        except KeyError as e:
+            # adding further checks for specificity...
+            if str(e) == "'price'":
+                return make_response(jsonify({"errors": ["Price is required."]}), 400)
+            elif str(e) == "'pizza_id'":
+                return make_response(jsonify({"errors": ["Pizza ID is required."]}), 400)
+            elif str(e) == "'restaurant_id'":
+                return make_response(jsonify({"errors": ["Restaurant ID is required."]}))
+            else:
+                return make_response(jsonify({"errors": ["Invalid data values."]}), 400)
         except ValueError as e:
+           # validation error... 
+           # considering price range... price input type...
            return make_response(jsonify({"errors": [str(e)]}), 400)
         
 # -------- resource mappings --------
